@@ -144,7 +144,7 @@ def import_csv(ws, csv_path, delimiter, encoding):
 
 
 def number_or_text(text):
-    probe = text.strip().replace(" ", "").replace(" ", "")
+    probe = text.strip().replace("\N{NO-BREAK SPACE}", "").replace(" ", "")
     if probe and probe.lstrip("-").replace(".", "", 1).replace(",", "", 1).isdigit():
         try:
             return float(probe.replace(",", ".")) if ("." in probe or "," in probe) else int(probe)
